@@ -52,8 +52,11 @@ def predict(image):
     #               x.endswith('.png') or x.endswith('.jpg')]
     print("predict opened")
     model = Generator(ngf=32, n_residual_blocks=9)
+    print("generator initialised")
     ckpt = torch.load('faceApp/FastAgingGAN/pretrained_model/state_dict.pth', map_location='cpu')
+    print("checkpoint loaded")
     model.load_state_dict(ckpt)
+    print("checkpoints loaded into model")
     model.eval()
     trans = transforms.Compose([
         transforms.Resize((512, 512)),
