@@ -8,6 +8,7 @@ import numpy as np
 from PIL import Image
 from torchvision import transforms
 
+from faceApp.FastAgingGAN.pretrained_model.readStateFile import readTheFile
 
 from faceApp.FastAgingGAN.gan_module import Generator
 
@@ -53,7 +54,8 @@ def predict(image):
     print("predict opened")
     model = Generator(ngf=32, n_residual_blocks=9)
     print("generator initialised")
-    ckpt = torch.load('faceApp/FastAgingGAN/pretrained_model/state_dict.pth', map_location='cpu')
+    state_dict_file = readTheFile()
+    ckpt = torch.load(state_dict_file, map_location='cpu')
     print("checkpoint loaded")
     model.load_state_dict(ckpt)
     print("checkpoints loaded into model")
