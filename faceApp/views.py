@@ -19,7 +19,7 @@ def index(request):
         print("Performing Inference")
         #get uploaded image and pass it into function.
         urllib.request.urlretrieve(
-            'https://www.apzomedia.com/wp-content/uploads/2020/03/Tom-Cruise-Net-Worth-e1585322225367.jpg',
+            'https://th.bing.com/th/id/OIP.fjJ0CQwCKDuzzlcFKupeAAHaJ4?pid=ImgDet&rs=1',
             "gfg.png")
   
         image = Image.open("gfg.png")
