@@ -171,7 +171,7 @@ def index(request):
     
     if request.method =='POST' and 'run_custom_link' in request.POST:
        #pdb.set_trace()
-        inImg = request.POST.get("searchtext", NONE)
+        inImg = request.POST.get("searchtext", None)
         urllib.request.urlretrieve(
             inImg,
             "gfg.png")
