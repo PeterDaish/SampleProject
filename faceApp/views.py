@@ -175,7 +175,7 @@ def index(request):
         urllib.request.urlretrieve(
             inImg,
             "gfg.png")
-        inImg = Image.open(inImg)
+        inImg = Image.open("gfg.png")
         
         aged_image=predict(inImg)
         print("inferenced image")
