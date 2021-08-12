@@ -171,7 +171,7 @@ def index(request):
     
     if request.method =='POST' and 'run_custom_link' in request.POST:
        #pdb.set_trace()
-        inImg = request.FILES["searchtext"]
+        inImg = request.POST.get("searchtext", NONE)
         inImg = Image.open(inImg)
         
         aged_image=predict(inImg)
