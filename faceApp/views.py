@@ -137,7 +137,7 @@ def index(request):
 
 
 
-    if request.method=='POST':
+    if request.method=='POST' and 'run_custom_file' in request.POST:
         #pdb.set_trace()
         inImg = request.FILES["filename"]
         inImg = Image.open(inImg)
