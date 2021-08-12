@@ -59,13 +59,15 @@
             To get the link for a photo: open a new tab, go to Google Images, search for a photo you want to age, left click on the photo to enlarge it and then right click on the enlarged photo and select "open image in new tab". 
             At the top of the newly opened webpage, you can find the URL of the image (it will begin with "https://"). Copy the URL and then paste that URL into the text box below. Then press the button.
         </p>
-    </center>
     <form method="post">
         {% csrf_token %}
 
       <input type="text" name="searchtext">
       <button type="submit" name="run_custom_link">Create DeepFake!</button>
-        
+           
+ 
     </form>
+    </center>
+
 </div>
 
