@@ -162,6 +162,40 @@ def index(request):
         print("base64 workded")
 
         return render(request, 'faceApp/result.html', context)
+    
+    
+    
+    
+    
+    ###Custom LINKS
+    
+    if request.method =='POST' and 'run_custom_link' in request.POST:
+       #pdb.set_trace()
+        inImg = request.FILES["searchtext"]
+        inImg = Image.open(inImg)
+        
+        aged_image=predict(inImg)
+        print("inferenced image")
+        buffered=BytesIO()
+        print("saving locally as png")
+        #encoded = base64.b64encode(inImg).decode('ascii')
+        aged_image.save(buffered, format='png')
+        print("first image save")
+        im = Image.open(buffered)
+        print("second image open")
+        buffered2 = BytesIO()
+        im.save(buffered2, format='png')
+        print("second image save")
+        im_str = base64.b64encode(buffered2.getvalue()).decode()
+        data_uri = 'data:image/png;base64,'
+        data_uri += im_str
+        context = dict()
+        context['data'] = data_uri
+        print("base64 workded")
+
+        return render(request, 'faceApp/result.html', context)
+    
+    ###
 
         
     #tasks = Task.objects.all()
